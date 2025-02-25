@@ -12,3 +12,5 @@ package-install:
 
 make lint:
 	uv run ruff check brain_games
+
+build-install: build package-install
