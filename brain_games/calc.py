@@ -21,13 +21,12 @@ def check_calc(user_name):
             f'\nQuestion: {number1} {operation} {number2}'
         )
         calc_answer = prompt.string("Your answer: ")
-
-        if operations_dict[operation](number1, number2) == calc_answer:
+        if str(operations_dict[operation](number1, number2)) == calc_answer:
             print("Correct!")
             count_right_answers += 1
         else:
             print(f"'{calc_answer}' is wrong answer ;(. Correct answer was \n"
-                f"'{operations_dict[operation](number1, number2)}'.\n")
+                f"'{operations_dict[operation](number1, number2)}'.\n"
                 f"Let's try again, {user_name}!")
             return
     print(f"Congratulations, {user_name}!")
