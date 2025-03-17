@@ -1,5 +1,5 @@
-from brain_games.cli import welcome_user
 from brain_games.calc import check_calc
+from brain_games.cli import welcome_user
 
 
 def main():
