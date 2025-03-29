@@ -1,22 +1,20 @@
 # check_calc
 import random
 
-from brain_games.quest_check import ask_question
-
+from brain_games.utils import ask_question
+from brain_games.constants import MAX_ATTEMPTS, NUM1, NUM2
 
 def check_calc(user_name):
     count_right_answers = 0
-    while count_right_answers < 3:
-        number1 = random.randint(1, 99)
-        number2 = random.randint(1, 99)
+    while count_right_answers < MAX_ATTEMPTS:
         operation = random.choice(["+", "-", "*"])
         operations_dict = {
             "+": lambda x, y: x + y,
             "-": lambda x, y: x - y,
             "*": lambda x, y: x * y,
         }
-        correct_answer = str(operations_dict[operation](number1, number2))
-        question = f"{number1} {operation} {number2}"
+        correct_answer = str(operations_dict[operation](NUM1, NUM2))
+        question = f"{NUM1} {operation} {NUM2}"
         is_correct, user_answer = ask_question(question, correct_answer)
         if is_correct:
             print("Correct!")

@@ -3,7 +3,6 @@ from brain_games.even import check_even
 
 
 def main():
-    print("Welcome to the Brain Games!")
     user_name = welcome_user()
     check_even(user_name)
 

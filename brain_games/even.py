@@ -1,7 +1,6 @@
 # check_even
-import random
-
-from brain_games.quest_check import ask_question
+from brain_games.constants import MAX_ATTEMPTS
+from brain_games.utils import ask_question, get_two_random_numbers
 
 
 def check_even(user_name):
@@ -9,8 +8,8 @@ def check_even(user_name):
 
     count_right_answers = 0
 
-    while count_right_answers < 3:
-        number = random.randint(1, 99)
+    while count_right_answers < MAX_ATTEMPTS:
+        number, _ = get_two_random_numbers()
         correct_answer = "yes" if number % 2 == 0 else "no"
         is_correct, user_answer = ask_question(str(number), correct_answer)
         if is_correct:
