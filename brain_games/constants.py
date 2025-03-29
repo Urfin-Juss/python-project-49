@@ -2,9 +2,6 @@
 
 from brain_games.utils import get_two_random_numbers
 
-# even_num
-RAND_NUM_EVEN, _ = get_two_random_numbers()
-
 # number_of_tries
 MAX_ATTEMPTS = 3
 
@@ -18,3 +15,7 @@ OPERATIONS_DICT = {
         "-": lambda x, y: x - y,
         "*": lambda x, y: x * y,
         }
+
+# even_game
+RULES_EVEN = "Answer 'yes' if the number is even, otherwise answer 'no'."
+
