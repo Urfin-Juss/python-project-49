@@ -2,7 +2,7 @@
 
 import prompt
 import random
-
+from brain_games.constants import OPERATIONS, OPERATIONS_DICT
 
 # get_two_random_numbers
 def get_two_random_numbers():
@@ -20,10 +20,22 @@ def ask_question(question: str, correct_answer: str) -> tuple[bool, str]:
 
     return is_correct, user_answer
 
-#check_parity
+
+# check_parity
 def check_parity():
     number, _ = get_two_random_numbers()
     correct_answer = "yes" if number % 2 == 0 else "no"
 
     return number, correct_answer
+
+
+# get_calc_question
+def get_calc_question():
+    num1, num2 = get_two_random_numbers()
+    operation = random.choice(OPERATIONS)
+    correct_answer = str(OPERATIONS_DICT[operation](num1, num2))
+    question = f"{num1} {operation} {num2}"
+    return question, correct_answer 
+
+
 
