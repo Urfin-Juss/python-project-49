@@ -2,8 +2,9 @@
 
 import prompt
 import random
+import math
 from brain_games.constants import OPERATIONS, OPERATIONS_DICT
-from math import gcd
+
 
 
 # get_two_random_numbers
@@ -76,3 +77,28 @@ def gen_progression(start, step, length):
 # valid_progression
 def is_valid_progression(progression):
     return all(0 <= num <= 100 for num in progression)
+
+
+# get_prime
+def get_prime():
+    number, _ = get_two_random_numbers()
+    correct_answer = "yes" if is_prime(number) else "no"
+
+    return number, correct_answer
+
+def is_prime(number):
+    # Базовые случаи
+    if number <= 1:
+        return False
+    if number <= 3:
+        return True  # 2 и 3 — простые числа
+    if number % 2 == 0 or number % 3 == 0:
+        return False  # Исключаем числа, делящиеся на 2 или 3
+
+    # Проверяем делители от 5 до sqrt(n)
+    limit = int(math.sqrt(number)) + 1
+    for i in range(5, limit, 2):  # Проверяем только нечётные числа
+        if number % i == 0:
+            return False
+
+    return True
