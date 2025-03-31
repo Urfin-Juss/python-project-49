@@ -23,4 +23,8 @@ RULES_CALC = "What is the result of the expression?"
 
 
 # gcd_game 
-RULES_GSD = "Find the greatest common divisor of given numbers."
+RULES_GCD = "Find the greatest common divisor of given numbers."
+
+
+# progression_const
+RULES_PROGRESSION = "What number is missing in the progression?"

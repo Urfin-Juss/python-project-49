@@ -3,6 +3,8 @@
 import prompt
 import random
 from brain_games.constants import OPERATIONS, OPERATIONS_DICT
+from math import gcd
+
 
 # get_two_random_numbers
 def get_two_random_numbers():
@@ -35,7 +37,42 @@ def get_calc_question():
     operation = random.choice(OPERATIONS)
     correct_answer = str(OPERATIONS_DICT[operation](num1, num2))
     question = f"{num1} {operation} {num2}"
-    return question, correct_answer 
+    return question, correct_answer
 
 
+# get_gcd
+def get_gcd():
+    num1, num2 = get_two_random_numbers()
+    question = f"{num1} {num2}"
+    correct_answer = str(gcd(num1, num2))
 
+    return question, correct_answer
+
+
+# get_progression
+def get_progression():
+    while True:
+        start, step = get_two_random_numbers()
+        length = random.randint(5, 10)
+        progression = gen_progression(start, step, length)
+        if is_valid_progression(progression):
+            break
+    
+    hidden_index = random.randint(0, length - 1)
+    correct_answer = str(progression[hidden_index])
+    
+    progression[hidden_index] = ".."
+
+    question = " ".join(map(str, progression))
+
+    return question, correct_answer
+
+
+# gen_progression
+def gen_progression(start, step, length):
+    return [start + step * i for i in range(length)]
+
+
+# valid_progression
+def is_valid_progression(progression):
+    return all(0 <= num <= 100 for num in progression)
