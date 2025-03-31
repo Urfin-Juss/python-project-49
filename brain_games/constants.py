@@ -15,7 +15,7 @@ OPERATIONS_DICT = {
 
 
 # even_game
-RULES_EVEN = "Answer 'yes' if the number is even, otherwise answer 'no'."
+RULES_EVEN = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 # calc_game

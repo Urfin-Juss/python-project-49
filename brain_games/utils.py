@@ -6,7 +6,6 @@ import math
 from brain_games.constants import OPERATIONS, OPERATIONS_DICT
 
 
-
 # get_two_random_numbers
 def get_two_random_numbers():
     num1 = random.randint(1, 100)
@@ -58,14 +57,11 @@ def get_progression():
         progression = gen_progression(start, step, length)
         if is_valid_progression(progression):
             break
-    
+
     hidden_index = random.randint(0, length - 1)
     correct_answer = str(progression[hidden_index])
-    
     progression[hidden_index] = ".."
-
     question = " ".join(map(str, progression))
-
     return question, correct_answer
 
 
@@ -86,18 +82,17 @@ def get_prime():
 
     return number, correct_answer
 
+
 def is_prime(number):
-    # Базовые случаи
     if number <= 1:
         return False
     if number <= 3:
-        return True  # 2 и 3 — простые числа
+        return True 
     if number % 2 == 0 or number % 3 == 0:
-        return False  # Исключаем числа, делящиеся на 2 или 3
+        return False 
 
-    # Проверяем делители от 5 до sqrt(n)
     limit = int(math.sqrt(number)) + 1
-    for i in range(5, limit, 2):  # Проверяем только нечётные числа
+    for i in range(5, limit, 2): 
         if number % i == 0:
             return False
 
