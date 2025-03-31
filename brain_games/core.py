@@ -1,6 +1,7 @@
 from brain_games.constants import MAX_ATTEMPTS
 from brain_games.utils import ask_question
 
+
 def run_game(get_logic: callable, rules: str, user_name): 
     
     print(rules)

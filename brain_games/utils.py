@@ -1,10 +1,12 @@
 # utils.py
+import math
+import random
+from math import gcd
 
 import prompt
-import random
-import math
+
 from brain_games.constants import OPERATIONS, OPERATIONS_DICT
-from math import gcd
+
 
 # get_two_random_numbers
 def get_two_random_numbers():
@@ -87,12 +89,12 @@ def is_prime(number):
     if number <= 1:
         return False
     if number <= 3:
-        return True 
+        return True
     if number % 2 == 0 or number % 3 == 0:
-        return False 
+        return False
 
     limit = int(math.sqrt(number)) + 1
-    for i in range(5, limit, 2): 
+    for i in range(5, limit, 2):
         if number % i == 0:
             return False
 
