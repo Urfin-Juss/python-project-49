@@ -4,7 +4,7 @@ import prompt
 import random
 import math
 from brain_games.constants import OPERATIONS, OPERATIONS_DICT
-
+from math import gcd
 
 # get_two_random_numbers
 def get_two_random_numbers():
