@@ -1,4 +1,6 @@
 # utils.py
+
+import math
 import random
 
 import prompt
