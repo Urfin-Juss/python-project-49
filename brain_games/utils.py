@@ -1,11 +1,7 @@
 # utils.py
-import math
 import random
-from math import gcd
 
 import prompt
-
-from brain_games.constants import OPERATIONS, OPERATIONS_DICT
 
 
 # get_two_random_numbers
@@ -25,48 +21,6 @@ def ask_question(question: str, correct_answer: str) -> tuple[bool, str]:
     return is_correct, user_answer
 
 
-# check_parity
-def check_parity():
-    number, _ = get_two_random_numbers()
-    correct_answer = "yes" if number % 2 == 0 else "no"
-
-    return number, correct_answer
-
-
-# get_calc_question
-def get_calc_question():
-    num1, num2 = get_two_random_numbers()
-    operation = random.choice(OPERATIONS)
-    correct_answer = str(OPERATIONS_DICT[operation](num1, num2))
-    question = f"{num1} {operation} {num2}"
-    return question, correct_answer
-
-
-# get_gcd
-def get_gcd():
-    num1, num2 = get_two_random_numbers()
-    question = f"{num1} {num2}"
-    correct_answer = str(gcd(num1, num2))
-
-    return question, correct_answer
-
-
-# get_progression
-def get_progression():
-    while True:
-        start, step = get_two_random_numbers()
-        length = random.randint(5, 10)
-        progression = gen_progression(start, step, length)
-        if is_valid_progression(progression):
-            break
-
-    hidden_index = random.randint(0, length - 1)
-    correct_answer = str(progression[hidden_index])
-    progression[hidden_index] = ".."
-    question = " ".join(map(str, progression))
-    return question, correct_answer
-
-
 # gen_progression
 def gen_progression(start, step, length):
     return [start + step * i for i in range(length)]
@@ -75,14 +29,6 @@ def gen_progression(start, step, length):
 # valid_progression
 def is_valid_progression(progression):
     return all(0 <= num <= 100 for num in progression)
-
-
-# get_prime
-def get_prime():
-    number, _ = get_two_random_numbers()
-    correct_answer = "yes" if is_prime(number) else "no"
-
-    return number, correct_answer
 
 
 def is_prime(number):
