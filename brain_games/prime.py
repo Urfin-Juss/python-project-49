@@ -23,16 +23,6 @@ def get_prime():
     return number, correct_answer
 
 
-# gen_progression
-def gen_progression(start, step, length):
-    return [start + step * i for i in range(length)]
-
-
-# valid_progression
-def is_valid_progression(progression):
-    return all(0 <= num <= 100 for num in progression)
-
-
 def is_prime(number):
     if number <= 1:
         return False
